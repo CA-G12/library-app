@@ -2,6 +2,11 @@ BEGIN;
 
 DROP TABLE IF EXISTS books ,genres ,authors , book_author CASCADE;
 
+CREATE TABLE genres (
+    id SERIAL PRIMARY KEY,
+    genre varchar(100) NOT NULL
+);
+
 CREATE TABLE books (
     id SERIAL PRIMARY KEY,
     book_name varchar(100) NOT NULL,
@@ -10,10 +15,6 @@ CREATE TABLE books (
     genre_id INTEGER references genres(id)
 );
 
-CREATE TABLE genres (
-    id SERIAL PRIMARY KEY,
-    genre varchar(100) NOT NULL
-);
 
 CREATE TABLE authors (
     id SERIAL PRIMARY KEY,
