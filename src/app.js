@@ -1,6 +1,6 @@
 const { join } = require('path');
 const compression = require('compression');
-const helmet = require('helmet');
+// const helmet = require('helmet');
 const express = require('express');
 
 const router = require('./controllers');
@@ -11,7 +11,7 @@ app.set('port', process.env.PORT || 4000);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(compression());
-app.use(helmet());
+// app.use(helmet());
 
 app.use(express.static(join(__dirname, '..', 'public')));
 
