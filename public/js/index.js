@@ -6,9 +6,10 @@ const createElements = (element) => document.createElement(element);
 const handleCard = (obj) => {
   const cardDiv = createElements('div');
   cardDiv.setAttribute('class', 'card-grid-space');
-  const a = createElements('a');
+  const a = createElements('div');
   a.setAttribute('class', 'card');
-  a.style.backgroundImage = `url(${obj.book_image})`;
+  a.setAttribute('style', `--bg-img: url(${obj.book_image})`);
+  // a.style.backgroundImage = `url(${obj.book_image})`;
   cardDiv.appendChild(a);
   const bookDiv = createElements('div');
   const h1 = createElements('h1');
@@ -36,7 +37,6 @@ const handleCard = (obj) => {
   genreDiv.textContent = `${obj.book_name}`;
   tagDiv.appendChild(genreDiv);
   bookDiv.appendChild(tagDiv);
-  bookDiv.style.backgroundImage = `url(${obj.book_image})`;
   a.appendChild(bookDiv);
   cardsWrapper.appendChild(cardDiv);
   console.log(1111111);
