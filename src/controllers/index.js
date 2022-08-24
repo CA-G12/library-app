@@ -1,4 +1,5 @@
 const express = require('express');
+const { join } = require('path');
 const { getData, postData } = require('../database/queries');
 
 const router = express.Router();
@@ -9,7 +10,7 @@ router.get('/books', (req, res) => {
       res.json(data.rows);
     })
     .catch((err) => {
-      res.status(500).json({ msg: 'server error' });
+      res.status(500).sendFile(join(__dirname, '..', '..', 'public', 'html', '500.html'));
     });
 });
 
@@ -25,7 +26,7 @@ router.post('/addBook', (req, res) => {
     })
     .catch((err) => {
       console.log(err);
-      res.status(500).json({ msg: 'server error' });
+      res.status(500).sendFile(join(__dirname, '..', '..', 'public', 'html', '500.html'));
     });
 });
 
