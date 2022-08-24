@@ -24,7 +24,7 @@ app.use((req, res) => {
 
 // eslint-disable-next-line no-unused-vars
 app.use((err, req, res, next) => {
-  res.status(500).join({ msg: 'INTERNAL SERVER ERROR' });
+  res.status(500).json({ msg: 'INTERNAL SERVER ERROR' });
 });
 
 module.exports = app;
