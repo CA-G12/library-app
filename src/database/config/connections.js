@@ -1,13 +1,13 @@
 const { Pool } = require('pg');
 require('dotenv').config();
 
-const { DB_URL } = process.env;
+const { DATABASE_URL } = process.env;
 
-if (!DB_URL) throw new Error('database NOT Found');
+if (!DATABASE_URL) throw new Error('database NOT Found');
 
 const connection = new Pool({
-  connectionString: DB_URL,
-  ssl: new URL(DB_URL).hostname !== 'localhost',
+  connectionString: DATABASE_URL,
+  ssl: new URL(DATABASE_URL).hostname !== 'localhost',
 });
 
 module.exports = connection;
