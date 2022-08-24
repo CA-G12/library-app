@@ -14,14 +14,19 @@ router.get('/books', (req, res) => {
 });
 
 router.post('/addBook', (req, res) => {
-  const {
-    book_name, description, book_image, book_author,
-  } = req.body;
-  postData({ book_name, description, book_image })
+  console.log(7777);
+  console.log(req.body);
+
+  const { bookName, description, bookImage } = req.body;
+  postData({ bookName, description, bookImage })
     .then((data) => {
+      console.log(data);
       res.redirect('/');
     })
-    .catch((err) => res.status(500).json({ msg: 'server error' }));
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json({ msg: 'server error' });
+    });
 });
 
 module.exports = router;

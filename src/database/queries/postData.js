@@ -1,8 +1,10 @@
 const connection = require('../config/connections');
 
-const postData = ({ book_name, description, book_image }) => connection.query(
-  'insert into users(name, location) values($1, $2, $3) returning *',
-  [book_name, description, book_image],
+const postData = ({ bookName, description, bookImage }) => connection.query(
+  {
+    text: 'insert into books(book_name, description, book_image) values($1, $2, $3)',
+    values: [bookName, description, bookImage],
+  },
 );
 
 module.exports = postData;
