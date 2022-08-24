@@ -3,7 +3,7 @@ const compression = require('compression');
 const helmet = require('helmet');
 const express = require('express');
 
-// const router = require('./routes');
+const router = require('./controllers');
 
 const app = express();
 app.set('port', process.env.PORT || 4000);
@@ -15,7 +15,7 @@ app.use(helmet());
 
 app.use(express.static(join(__dirname, '..', 'public')));
 
-// app.use('/api', router);
+app.use(router);
 
 // ERROR HANDLING
 app.use((req, res) => {
