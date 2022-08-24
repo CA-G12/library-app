@@ -19,12 +19,12 @@ app.use(router);
 
 // ERROR HANDLING
 app.use((req, res) => {
-  res.status(404).json({ msg: 'PAGE NOT FOUND' });
+  res.status(404).sendFile(join(__dirname, '..', 'public', 'html', '404.html'));
 });
 
 // eslint-disable-next-line no-unused-vars
 app.use((err, req, res, next) => {
-  res.status(500).json({ msg: 'INTERNAL SERVER ERROR' });
+  res.status(500).sendFile(join(__dirname, '..', 'public', 'html', '500.html'));
 });
 
 module.exports = app;
