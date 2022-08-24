@@ -4,7 +4,6 @@ const { getData } = require('../database/queries');
 const router = express.Router();
 
 router.get('/books', (req, res) => {
-  console.log(222222);
   getData()
     .then((data) => {
       console.log(data);
